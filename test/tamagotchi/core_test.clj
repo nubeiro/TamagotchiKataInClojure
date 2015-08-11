@@ -77,4 +77,15 @@
 
         (tiredness tamagotchi) => 11)))
 
+  (facts
+    "when it makes poo"
+
+    (fact
+      "its fullness decreases"
+      (let [tamagotchi (make-tamagotchi :fullness 4)]
+
+        (make-loads-of-poo tamagotchi)
+
+        (fullness tamagotchi) => 3)))
+
   )

@@ -40,6 +40,9 @@
 (defn- increase-fullness [tamagotchi]
   (change tamagotchi :fullness (inc (fullness tamagotchi))))
 
+(defn- decrease-fullness [tamagotchi]
+  (change tamagotchi :fullness (dec (fullness tamagotchi))))
+
 (defn- decrease-tiredness [tamagotchi]
   (change tamagotchi :tiredness (dec (tiredness tamagotchi))))
 
@@ -59,3 +62,6 @@
 (defn play-with [tamagotchi]
   (increase-happiness tamagotchi)
   (increase-tiredness tamagotchi))
+
+(defn make-loads-of-poo [tamagotchi]
+  (decrease-fullness tamagotchi))
