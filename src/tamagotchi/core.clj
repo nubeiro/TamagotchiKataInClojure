@@ -24,15 +24,21 @@
          :fullness fullness
          :tiredness tiredness}))
 
+(defn- change [tamagotchi key value]
+  (swap! tamagotchi assoc key value))
+
 (defn- decrease-hungriness [tamagotchi]
-  (swap! tamagotchi assoc :hungriness (dec (hungriness tamagotchi))))
+  (change tamagotchi :hungriness (dec (hungriness tamagotchi))))
 
 (defn- increase-fullness [tamagotchi]
-  (swap! tamagotchi assoc :fullness (inc (fullness tamagotchi))))
+  (change tamagotchi :fullness (inc (fullness tamagotchi))))
+
+(defn- decrease-tiredness [tamagotchi]
+  (change tamagotchi :tiredness (dec (tiredness tamagotchi))))
 
 (defn feed [tamagotchi]
   (do (decrease-hungriness tamagotchi)
       (increase-fullness tamagotchi)))
 
 (defn go-to-bed [tamagotchi]
-  (swap! tamagotchi assoc :tiredness (dec (tiredness tamagotchi))))
+  (decrease-tiredness tamagotchi))
