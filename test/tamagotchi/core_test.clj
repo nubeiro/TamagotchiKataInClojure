@@ -13,27 +13,36 @@
       (let [tamagotchi (make-tamagotchi)]
         (hungriness tamagotchi) => default-hungriness
         (fullness tamagotchi) => default-fullness
-        (tiredness tamagotchi) => default-tiredness))
+        (tiredness tamagotchi) => default-tiredness
+        (happiness tamagotchi) => default-happiness))
 
     (fact
       "or the ones you initializes it with"
       (let [tamagotchi
             (make-tamagotchi
-              :fullness 3 :hungriness 4 :tiredness 5)]
+              :fullness 3 :hungriness 4 :tiredness 5 :happiness 10)]
         (hungriness tamagotchi) => 4
         (fullness tamagotchi) => 3
-        (tiredness tamagotchi) => 5)))
+        (tiredness tamagotchi) => 5
+        (happiness tamagotchi) => 10)))
 
   (facts
     "when it is fed"
 
     (fact
-      "its hungriness decreases by one and its fullness increases by one"
-      (let [tamagotchi (make-tamagotchi :hungriness 5 :fullness 10)]
+      "its hungriness decreases by one"
+      (let [tamagotchi (make-tamagotchi :hungriness 5)]
 
         (feed tamagotchi)
 
-        (hungriness tamagotchi) => 4
+        (hungriness tamagotchi) => 4))
+
+    (fact
+      "its fullness increases by one"
+      (let [tamagotchi (make-tamagotchi :fullness 10)]
+
+        (feed tamagotchi)
+
         (fullness tamagotchi) => 11)))
 
   (facts
@@ -51,13 +60,21 @@
     "when I play with it"
 
     (fact
-      "its its happiness and its tiredness increases by one"
+      "its happiness increases by one"
 
-      (let [tamagotchi (make-tamagotchi :tiredness 10 :happiness 20)]
+      (let [tamagotchi (make-tamagotchi :happiness 20)]
 
         (play-with tamagotchi)
 
-        (tiredness tamagotchi) => 11
-        (happiness tamagotchi) => 21)))
+        (happiness tamagotchi) => 21))
+
+    (fact
+      "its tiredness increases by one"
+
+      (let [tamagotchi (make-tamagotchi :tiredness 10)]
+
+        (play-with tamagotchi)
+
+        (tiredness tamagotchi) => 11)))
 
   )

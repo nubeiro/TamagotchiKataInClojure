@@ -18,11 +18,14 @@
 
 (def default-tiredness 0)
 
+(def default-happiness 20)
+
 (defn make-tamagotchi
   [& {:keys [hungriness fullness tiredness happiness]
       :or   {hungriness default-hungriness
              fullness   default-fullness
-             tiredness  default-tiredness}}]
+             tiredness  default-tiredness
+             happiness default-happiness}}]
   (atom {:hungriness hungriness
          :fullness   fullness
          :tiredness  tiredness
