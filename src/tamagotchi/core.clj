@@ -20,13 +20,13 @@
 
 (defn make-tamagotchi
   [& {:keys [hungriness fullness tiredness happiness]
-      :or {hungriness default-hungriness
-           fullness default-fullness
-           tiredness default-tiredness}}]
+      :or   {hungriness default-hungriness
+             fullness   default-fullness
+             tiredness  default-tiredness}}]
   (atom {:hungriness hungriness
-         :fullness fullness
-         :tiredness tiredness
-         :happiness happiness}))
+         :fullness   fullness
+         :tiredness  tiredness
+         :happiness  happiness}))
 
 (defn- change [tamagotchi key value]
   (swap! tamagotchi assoc key value))
@@ -47,8 +47,8 @@
   (change tamagotchi :happiness (inc (happiness tamagotchi))))
 
 (defn feed [tamagotchi]
-  (do (decrease-hungriness tamagotchi)
-      (increase-fullness tamagotchi)))
+  (decrease-hungriness tamagotchi)
+  (increase-fullness tamagotchi))
 
 (defn go-to-bed [tamagotchi]
   (decrease-tiredness tamagotchi))
