@@ -6,7 +6,7 @@
   "about Tamagotchi"
 
   (facts
-    "when created"
+    "when it is created"
 
     (fact
       "it has some default values"
@@ -25,7 +25,7 @@
         (tiredness tamagotchi) => 5)))
 
   (facts
-    "when is fed"
+    "when it is fed"
 
     (fact
       "its hungriness decreases by one and its fullness increases by one"
@@ -37,7 +37,7 @@
         (fullness tamagotchi) => 11)))
 
   (facts
-    "when goes to bed"
+    "when it goes to bed"
 
     (fact
       "its tiredness decreases by one"
