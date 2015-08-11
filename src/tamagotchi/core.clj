@@ -34,34 +34,22 @@
 (defn- change [tamagotchi key value]
   (swap! tamagotchi assoc key value))
 
-(defn- decrease-hungriness [tamagotchi]
-  (change tamagotchi :hungriness (dec (hungriness tamagotchi))))
+(defn- decrease [attribute tamagotchi]
+  (change tamagotchi attribute (dec (attribute @tamagotchi))))
 
-(defn- increase-fullness [tamagotchi]
-  (change tamagotchi :fullness (inc (fullness tamagotchi))))
-
-(defn- decrease-fullness [tamagotchi]
-  (change tamagotchi :fullness (dec (fullness tamagotchi))))
-
-(defn- decrease-tiredness [tamagotchi]
-  (change tamagotchi :tiredness (dec (tiredness tamagotchi))))
-
-(defn- increase-tiredness [tamagotchi]
-  (change tamagotchi :tiredness (inc (tiredness tamagotchi))))
-
-(defn- increase-happiness [tamagotchi]
-  (change tamagotchi :happiness (inc (happiness tamagotchi))))
+(defn- increase [attribute tamagotchi]
+  (change tamagotchi attribute (inc (attribute @tamagotchi))))
 
 (defn feed [tamagotchi]
-  (decrease-hungriness tamagotchi)
-  (increase-fullness tamagotchi))
+  (decrease :hungriness tamagotchi)
+  (increase :fullness tamagotchi))
 
 (defn go-to-bed [tamagotchi]
-  (decrease-tiredness tamagotchi))
+  (decrease :tiredness tamagotchi))
 
 (defn play-with [tamagotchi]
-  (increase-happiness tamagotchi)
-  (increase-tiredness tamagotchi))
+  (increase :happiness tamagotchi)
+  (increase :tiredness tamagotchi))
 
 (defn make-loads-of-poo [tamagotchi]
-  (decrease-fullness tamagotchi))
+  (decrease :fullness tamagotchi))
