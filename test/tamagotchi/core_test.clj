@@ -47,4 +47,17 @@
 
         (tiredness tamagotchi) => 9)))
 
+  (facts
+    "when I play with it"
+
+    (fact
+      "its its happiness and its tiredness increases by one"
+
+      (let [tamagotchi (make-tamagotchi :tiredness 10 :happiness 20)]
+
+        (play-with tamagotchi)
+
+        (tiredness tamagotchi) => 11
+        (happiness tamagotchi) => 21)))
+
   )
